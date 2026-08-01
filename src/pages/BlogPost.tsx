@@ -1,7 +1,7 @@
 import { useLoaderData, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { fetchBlogBySlug } from '@/service/blogApi';
-import type { BlogPost } from '@/types/Blog.ts';
+import type { BlogPost } from '@/types/blog.ts';
 import TableOfContents from '@/components/TableOfContents';
 
 /** React Router loader —— 路由渲染前自动请求数据 */
@@ -17,7 +17,7 @@ function slugify(text: string): string {
   return text
     .toLowerCase()
     .replace(/\s+/g, '-')
-    .replace(/[^\w一-鿿\-]/g, '')
+    .replace(/[^\w一-鿿-]/g, '')
     .replace(/-+/g, '-')
     .replace(/^-|-$/g, '');
 }
