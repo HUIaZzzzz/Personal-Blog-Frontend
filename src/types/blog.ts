@@ -1,5 +1,6 @@
 /** 博客列表项（与后端 JSON 字段一一对应，蛇形命名） */
 export interface BlogPost {
+  id: number;
   title: string;
   slug: string;
   summary: string;

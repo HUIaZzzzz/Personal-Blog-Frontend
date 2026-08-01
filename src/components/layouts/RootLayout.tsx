@@ -2,7 +2,7 @@ import { Outlet, NavLink } from 'react-router-dom';
 import { Switch } from '@/components/ui/switch.tsx';
 import { useTheme } from '@/theme.ts';
 import { useEffect } from 'react';
-import { ButtonGroupInput } from '@/components/SeacchInput.tsx';
+import SearchDialog from '@/components/DialogSearchInput.tsx';
 
 function RootLayout() {
   const { theme, toggleTheme } = useTheme();
@@ -27,7 +27,7 @@ function RootLayout() {
           <div className="flex items-center gap-2">
             <span className="text-base font-bold xs:text-lg">辉的个人博客</span>
           </div>
-          <ButtonGroupInput />
+          <SearchDialog />
           <nav className="flex items-center gap-3 text-xs xs:gap-4 xs:text-sm">
             <Switch
               checked={theme === 'dark'}

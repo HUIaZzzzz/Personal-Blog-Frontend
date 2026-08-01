@@ -7,7 +7,7 @@ interface Heading {
 }
 
 /** 从 markdown 文本中提取所有标题 */
-export function extractHeadings(markdown: string): Heading[] {
+function extractHeadings(markdown: string): Heading[] {
   const headingRegex = /^(#{1,6})\s+(.+)$/gm;
   const headings: Heading[] = [];
   let match: RegExpExecArray | null;
@@ -17,7 +17,7 @@ export function extractHeadings(markdown: string): Heading[] {
     const id = text
       .toLowerCase()
       .replace(/[\s]+/g, '-')
-      .replace(/[^\w一-鿿\-]/g, '')  // 保留中英文和连字符
+      .replace(/[^\w一-鿿-]/g, '')  // 保留中英文和连字符
       .replace(/-+/g, '-')
       .replace(/^-|-$/g, '');
     headings.push({ id, text, level });
