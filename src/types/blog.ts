@@ -5,6 +5,7 @@ export interface BlogPost {
   slug: string;
   summary: string;
   created_at: string;
+  view_count: number;
   /** 详情接口才返回完整内容 */
   content?: string;
   cover_image?: string;

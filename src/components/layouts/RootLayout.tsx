@@ -21,7 +21,7 @@ function RootLayout() {
 
   return (
     <div className="min-h-screen bg-background p-4 text-foreground xs:p-6 desktop:p-8">
-      <div className="grid min-h-[calc(100vh-2rem)] grid-cols-1 gap-4 xs:gap-6 lg:grid-cols-[240px_1fr] desktop:grid-cols-[280px_1fr] desktop:gap-8">
+      <div className="grid grid-cols-1 gap-4 xs:gap-6 lg:grid-cols-[240px_1fr] desktop:grid-cols-[280px_1fr] desktop:gap-8">
         {/* ===== 导航栏 ===== */}
         <header className="flex h-16 items-center justify-between px-4 xs:px-6 lg:col-span-2">
           <div className="flex items-center gap-2">

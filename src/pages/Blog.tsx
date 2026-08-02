@@ -1,13 +1,17 @@
+import { useState } from "react";
 import type { BlogPost } from "@/types/blog.ts";
 import { useBlogList } from "@/hooks/useBlogs.ts";
-import {
-  Card,
-  CardContent,
-} from "@/components/ui/card";
-import {BlogCard} from "@/components/BlogCard.tsx";
+import { Card, CardContent } from "@/components/ui/card";
+import { BlogCard } from "@/components/BlogCard.tsx";
+import { PaginationDemo } from "@/components/Page.tsx";
+
+const PAGE_SIZE = 10;
 
 function Blog() {
-  const { data, isLoading, isError } = useBlogList();
+  const [page, setPage] = useState(1);
+  const { data, isLoading, isError } = useBlogList(page, PAGE_SIZE);
+
+  const totalPages = data ? Math.ceil(data.count / PAGE_SIZE) : 0;
 
   return (
     <div>
@@ -17,7 +21,7 @@ function Blog() {
       {isLoading && (
         <div className="flex flex-col items-center gap-4">
           {[1, 2, 3].map((i) => (
-            <BlogCard key= {i}/>
+            <BlogCard key={i} />
           ))}
         </div>
       )}
@@ -39,11 +43,18 @@ function Blog() {
           {data.results.map((blog: BlogPost) => (
             <BlogCard
               key={blog.id}
-              title={blog.title} // 传递标题
-              summary={blog.summary} // 传递摘要
+              title={blog.title}
+              summary={blog.summary}
+              slug={blog.slug}
               created_at={blog.created_at}
+              view_count={blog.view_count}
             />
           ))}
+          <PaginationDemo
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={setPage}
+          />
         </div>
       )}
     </div>

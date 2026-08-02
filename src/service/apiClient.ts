@@ -2,6 +2,8 @@ import axios from 'axios';
 
 export interface FetchResponse<T> {
   count: number;
+  skip: number;
+  limit: number;
   results: T[];
 }
 
@@ -17,9 +19,9 @@ class APIClient<T> {
     this.endpoint = endpoint;
   }
 
-  getAll = () => {
+  getAll = (params?: { skip?: number; limit?: number }) => {
     return axiosInstance
-        .get<FetchResponse<T>>(this.endpoint)
+        .get<FetchResponse<T>>(this.endpoint, { params })
         .then((res) => res.data);
   };
 
