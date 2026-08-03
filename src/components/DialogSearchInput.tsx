@@ -32,7 +32,7 @@ export function SearchDialog() {
       {/* 弹出的大搜索框 */}
       <DialogContent
         showCloseButton={false}
-        className="top-8 -translate-y-0 sm:max-w-xl!"
+        className="top-8 -translate-y-0 sm:max-w-xl! rounded-3xl"
       >
         <div className="flex items-center gap-3">
           <SearchIcon className="size-5 shrink-0 text-muted-foreground" />

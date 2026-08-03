@@ -15,6 +15,7 @@ interface Props {
   created_at?: string;
   view_count?: number;
 }
+
 export function BlogCard({ title, summary, slug, created_at,view_count }: Props) {
   return (
     <Link to={"/blogs/" + slug} className="mx-auto w-full max-w-2xl block">
