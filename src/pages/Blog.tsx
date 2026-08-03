@@ -4,6 +4,8 @@ import { useBlogList } from "@/hooks/useBlogs.ts";
 import { Card, CardContent } from "@/components/ui/card";
 import { BlogCard } from "@/components/BlogCard.tsx";
 import { PaginationDemo } from "@/components/Page.tsx";
+import { Badge } from "@/components/ui/badge";
+import { Label } from "@/components/ui/label";
 
 const PAGE_SIZE = 10;
 
@@ -15,7 +17,13 @@ function Blog() {
 
   return (
     <div>
-      <h1 className="scroll-m-20 text-xl font-extrabold  lg:text-3xl">博客</h1>
+      <div className="p-4 mt-4">
+        <Badge className="block mx-auto">Blog</Badge>
+        <h1 className=" text-xl font-extrabold lg:text-3xl text-center">
+          博客
+        </h1>
+        <Label className="block text-center">探索代码</Label>
+      </div>
 
       {/* 加载态 */}
       {isLoading && (

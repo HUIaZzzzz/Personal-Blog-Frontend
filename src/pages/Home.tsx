@@ -1,10 +1,11 @@
-import {EmptyDemo} from "@/components/Empty.tsx";
-import {ElegantTOC} from "@/components/TableOfContent.tsx";
-import {BlogCard} from "@/components/test.tsx";
+import {NavSheet} from "@/components/NavSheet.tsx";
 
 function Home() {
   return (
-    <BlogCard/>
+    <>
+    <NavSheet/>
+
+    </>
   );
 }
 
